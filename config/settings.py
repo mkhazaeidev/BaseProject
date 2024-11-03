@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -56,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_auto_logout.middleware.auto_logout',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -148,3 +149,22 @@ AUTH_USER_MODEL = 'accounts.User'
 LOGIN_REDIRECT_URL = 'accounts:dashboard'
 LOGIN_URL = 'accounts:login'
 LOGOUT_REDIRECT_URL = 'accounts:login'
+
+# Email Backend
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'vinzei.co@gmail.com'
+EMAIL_HOST_PASSWORD = 'gfbqakcgodcatucy'
+
+# Auto Logout Variable
+AUTO_LOGOUT = {
+    'IDLE_TIME': timedelta(minutes=30),
+    'REDIRECT_TO_LOGIN_IMMEDIATELY': True,
+}
+if LANGUAGE_CODE == 'fa-ir':
+    AUTO_LOGOUT['MESSAGE'] = 'بخاطر غیر فعال بودن، زمان استفاده از حساب کاربری تمام شده است.\
+     لطفا برای ادامه دوباره وارد شوید.'
+else:
+    AUTO_LOGOUT['MESSAGE'] = 'The session has expired. Please login again to continue.'
