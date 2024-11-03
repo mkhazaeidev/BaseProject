@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # Defined Apps
     'base.apps.BaseConfig',
+    'pages.apps.PagesConfig',
 
     # Third Party Apps
 ]
