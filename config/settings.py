@@ -39,10 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Defined Apps
+    'accounts.apps.AccountsConfig',
     'base.apps.BaseConfig',
     'pages.apps.PagesConfig',
 
     # Third Party Apps
+    'phonenumber_field',
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -139,3 +142,9 @@ else:
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Custom User model
+AUTH_USER_MODEL = 'accounts.User'
+LOGIN_REDIRECT_URL = 'accounts:dashboard'
+LOGIN_URL = 'accounts:login'
+LOGOUT_REDIRECT_URL = 'accounts:login'
