@@ -6,7 +6,7 @@
 {% bootstrap_javascript %}
 
 {% block title %}
-    Login Pages
+    {% translate "Login Page" %}
 {% endblock %}
 
 {% block main %}
@@ -37,8 +37,11 @@
                     <div class="submit-btn-area">
                         <button id="form_submit" type="submit">{% trans 'Submit' %} <i class="ti-arrow-right"></i></button>
                     </div>
-                    <div class="form-footer text-center mt-5">
-                        <p class="text-muted">Don't have an account? <a href="#">{% trans 'Sign up' %}</a></p>
+                    <div class="submit-btn-area mt-3">
+                        <a href="{% url 'pages:home' %}">{% trans 'Back to Home' %}</a>
+                    </div>
+                    <div class="form-footer text-center mt-2">
+                        <p class="text-muted">{% trans "Don't have an account?" %} <a href="#">{% trans 'Sign up' %}</a></p>
                     </div>
                 </form>
             </div>
