@@ -1,16 +1,19 @@
 {% extends 'base/index.html' %}
+{% load i18n %}
 
 {% block title %}
-    About Page
+    {% trans 'About Page' %}
 {% endblock %}
 
 {% block main %}
     <main class="container">
         <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-            <h1 class="display-4 fw-normal">About Page</h1>
-            <p class="fs-5 text-muted">Quickly build an effective pricing table for your potential customers with this
-                Bootstrap example. It’s built with default Bootstrap components and utilities with little
-                customization.</p>
+            <h1 class="display-4 fw-normal">
+                {% trans 'About Page Title' %}
+            </h1>
+            <p class="fs-5 text-muted">
+                {% trans 'Main Context' %}
+            </p>
         </div>
     </main>
 {% endblock %}
