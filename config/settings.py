@@ -29,7 +29,7 @@ INSTALLED_APPS = [
 
     # Third Party Apps
     'phonenumber_field',
-    'bootstrap5',
+    'django_bootstrap5',
 ]
 
 MIDDLEWARE = [
